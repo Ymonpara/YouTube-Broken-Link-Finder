@@ -14,9 +14,12 @@ app.post('/api/check-link', async (req, res) => {
     const timeout = setTimeout(() => controller.abort(), 8000);
     
     const response = await fetch(url, {
-      method: 'HEAD',
+      method: 'GET',
       signal: controller.signal,
-      redirect: 'follow'
+      redirect: 'follow',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      }
     });
     
     clearTimeout(timeout);

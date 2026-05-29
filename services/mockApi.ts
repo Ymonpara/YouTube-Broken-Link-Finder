@@ -77,7 +77,7 @@ export const checkLinks = async (urls: string[]): Promise<BrokenLink[]> => {
 
 async function checkSingleLink(url: string): Promise<BrokenLink | null> {
   try {
-    const response = await fetch('/api/check-link', {
+    const response = await fetch('http://localhost:3001/api/check-link', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ url })
